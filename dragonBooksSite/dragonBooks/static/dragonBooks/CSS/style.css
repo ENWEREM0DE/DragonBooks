@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  color: #222;
+}
+
+.container {
+  max-width: 150rem;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+/* Header */
+
+.header .sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+}
+
+.header .sub-header .brand-logo img {
+  width: 10rem;
+}
+
+.header .sub-header .search-bar {
+  position: relative;
+  width: 45rem;
+}
+
+.header .sub-header .search-bar input {
+  display: block;
+  width: 100%;
+  padding: 0.95rem;
+  border: 2px solid #eee;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #222;
+  padding-right: 3.5rem;
+}
+
+.header .sub-header .search-bar .search-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex: 1;
+}
+
+.header .sub-header .search-bar i {
+  font-size: 2rem;
+  color: rgb(148, 147, 147);
+  padding: 1rem;
+}
+
+/*.navbar {
+  background-color: #9d84b7;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4.5rem;
+}*/
+
+@keyframes example {
+  from {background-color: #001B35;}
+  to {background-color: rgb(204, 204, 35);}
+}
+
+/* The element to apply the animation to */
+.navbar {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4.5rem;
+  background-color: #001B35;
+  animation-name: example;
+  animation-duration: 2s;
+}
+
+
+.navbar a {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 0.3rem 1.5rem;
+  border: 2px solid #eee;
+  transition: all 500ms ease-in-out;
+  border-radius: 0.5rem;
+}
+
+.navbar a:hover {
+  background-color: #fff;
+  color: #9d84b7;
+}
+
+/* Hero-Main-Section */
+
+.main-section {
+  background-image: url('../images/1.jpg');
+  height: 700px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-section .main-text {
+  width: 50rem;
+  background-color: rgba(238, 238, 238, 0.75);
+  padding: 2.5rem 1.5rem;
+  border-top-left-radius: 3.5rem;
+  border: 2px solid #001B35;
+}
+
+.main-section .main-text h2 {
+  font-size: 4.5rem;
+  line-height: 5rem;
+  font-weight: 700;
+}
+
+.main-section .main-text p {
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: 2rem;
+  font-weight: 400;
+  padding: 2rem 0rem;
+  text-align: center;
+}
+
+/* Popular-Books */
+
+.popular-books {
+  margin-top: 8rem;
+}
+
+.heading {
+  position: relative;
+}
+
+.heading h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #001B35;
+  padding: 0 2.5rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.heading .line {
+  width: 100%;
+  height: 0.2rem;
+  background-color: rgb(148, 147, 147);
+}
+
+.popular-books {
+  padding: 0 1.5rem;
+}
+
+.popular-books .books-flex {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.popular-books .books-flex .card {
+  width: 28rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 1.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.popular-books .books-flex .card img {
+  display: block;
+  width: 25rem;
+  height: 32rem;
+  margin: 0 auto;
+}
+
+.popular-books .books-flex .card p {
+  font-size: 1.7rem;
+  font-weight: 600;
+  padding: 1.5rem 0rem 0.5rem;
+  line-height: 1.8rem;
+}
+
+.popular-books .books-flex .card .price {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: rgb(148, 147, 147);
+}
+
+/* Reviews-Section */
+
+.reviews {
+  margin-top: 8rem;
+  padding: 0 1.5rem;
+}
+
+.reviews .review-content {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.reviews .review-content .review-card {
+  width: 40rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 1.5rem 2.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.reviews .review-content .review-card .thumb-up {
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.reviews .review-content .review-card .thumb-up i {
+  font-size: 3rem;
+  display: inline-block;
+  color: #59367e;
+}
+
+.reviews .review-content .review-card p {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: #222;
+}
+
+/* Footer */
+
+footer {
+  padding: 2.5rem 1.5rem;
+  background-color: #001B35;
+  margin-top: 8rem;
+}
+
+footer p {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+}
+
+/* About-Page */
+
+.about {
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.about .left-content {
+  width: 70rem;
+  text-align: justify;
+}
+
+.about .left-content h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #001B35;
+  padding-bottom: 1rem;
+}
+
+.about .left-content p {
+  font-size: 1.7rem;
+  line-height: 1.4;
+  font-weight: 400;
+  padding-bottom: 1.2rem;
+}
+
+.about .left-content p span a {
+  color: rgb(62, 62, 221);
+  text-decoration: underline;
+}
+
+.about .left-content ul {
+  list-style: circle;
+}
+
+.about .left-content ul h5 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  padding-bottom: 1.2rem;
+}
+
+.about .left-content ul li {
+  margin-left: 5rem;
+  font-size: 1.7rem;
+}
+
+.about .right-content {
+  border: 2px solid #ddd;
+  height: fit-content;
+  padding: 1.5rem;
+  width: 25rem;
+}
+
+.about .right-content ul {
+  list-style: circle;
+}
+
+.about .right-content h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #001B35;
+  padding-bottom: 1rem;
+}
+
+.about .right-content ul li {
+  margin-left: 3rem;
+  font-size: 1.7rem;
+}
+
+.about .right-content ul li a {
+  color: rgb(62, 62, 221);
+}
+/* Media Queries */
+
+@media (max-width: 1050px) {
+  .about .right-content {
+    margin: 0 auto;
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-height: 650px) {
+  .main-section {
+    height: 450px;
+  }
+}
+
+@media (max-width: 693px) {
+  .navbar {
+    gap: 2.5rem;
+  }
+
+  .main-section {
+    height: 600px;
+  }
+}
+
+@media (max-width: 576px) {
+  .popular-books .books-flex .card {
+    width: 28rem;
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+  }
+
+  .heading h2 {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 2.2rem;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .main-section .main-text {
+    width: 90%;
+    margin: 5%;
+  }
+
+  .main-section .main-text h2 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+
+  .navbar {
+    gap: 0.8rem;
+    padding: 0.8rem;
+    border: 1.5px solid #eee;
+  }
+  .main-section {
+    height: 400px;
+  }
+
+  .main-section .main-text {
+    padding: 1.5rem;
+  }
+
+  .main-section .main-text h2 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  .header .sub-header .search-bar {
+    width: 30rem;
+  }
+
+  .header .sub-header .brand-logo img {
+    width: 8rem;
+  }
+}
+

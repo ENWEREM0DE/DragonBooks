@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/6255250c8f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../../static/dragonBooks/CSS/style.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Dragon Books - Home</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="sub-header">
+          <div class="brand-logo">
+            <a href="/">
+              <img src="../../static/dragonBooks/images/logo.PNG" alt="Dragon Books" />
+              </a>
+          </div>
+          <div class="search-bar">
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Search"
+            />
+            <div class="search-btn">
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/admin"> Admin Account</a>
+        <a href="/shop">Shop Books</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/cart">Cart</a>
+      </nav>
+    </header>
+
+    <section class="popular-books">
+      <div class="container">
+        <div class="heading">
+          <div class="line"></div>
+        </div>
+        <div class="books-flex">
+          <div>
+            <div class='bookimg'>
+            <a href="book1.html">
+            <img src="{{ product_object.image }}" alt="Book1" class ="center">
+            </a>
+            </div>
+
+            <h2>{{ product_object.title }}</h2>
+            </a>
+            <br>
+            <h3> Description:</h3>
+            <p> 
+              {{ product_object.description }}
+            </p>
+
+
+            <div class="price">$ {{ product_object.price }}</div>
+            <div>
+              <h2>Contact Information</h2>
+              <p>Email: {{product_object.email}}</p>
+              <p>Phone Number: {{product_object.phoneNumber}}</p>
+            </div>
+          
+          </div>
+          <a href="/{{ product.id }}" class="btn btn-warning">View</a>
+          <a class="btn btn-warning">Add to Cart</a>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <footer>
+      <div class="container">
+        <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

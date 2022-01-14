@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/dragonBooks/CSS/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+     <!-- Header -->
+     <header class="header">
+        <div class="container">
+          <div class="sub-header">
+            <div class="brand-logo">
+              <a href="/">
+                <img src="../../static/dragonBooks/images/logo.PNG" alt="Dragon Books" />
+                </a>
+            </div>
+            <form class="search-bar" method="POST" action="{% url 'search' %}">
+                {% csrf_token %}
+              <input
+                type="search"
+                id="search"
+                name="searched"
+                placeholder="Search for books"
+              />
+              <div class="search-btn">
+                <i class="fas fa-search">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </i>
+              </div>
+            </form>
+          </div>
+        </div>
+        <nav class="navbar">
+          <a href="/">Home</a>
+          <a href="/admin"> Admin Account</a>
+          <a href="/shop">Shop Books</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/cart">Cart</a>
+        </nav>
+      </header>
+      {% if searched %}
+        <h1>You Searched for {{searched}}</h1>
+        <br/>
+
+        <div class="container">
+            <div class="row">
+                {% for book in books %}
+                <div class="col-md-3">
+                  
+                        <div class="card">
+                          <a href="/{{product.id}}">
+                          <img src="{{book.image}}" alt="" class="card-img-top" width="500px" height="500px">
+                          </a>
+                            
+                            <div class="card-body">
+                                <div class="card-title">
+                                    {{book.title}}
+                                </div>
+                                <div class="card-text">
+                                    $ {{book.price}}
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/{{product.id}}" class="btn btn-warning">View</a>
+                                    <a class="btn btn-warning">Add to Cart</a>
+                </div>
+                {%endfor %}
+            </div>
+        </div>
+      {% else %} 
+        <h1>You forgot to search</h1>
+      {% endif %}
+      
+      <footer>
+        <div class="container">
+          <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
+        </div>
+      </footer>
+</body>
+</html>
