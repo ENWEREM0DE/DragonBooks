@@ -9,3 +9,4 @@ class Products(models.Model):
     image = models.CharField(max_length=300)
     phoneNumber = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(max_length=30, null=True, blank=True)
+    classCode = models.CharField(max_length=10, null=True, blank=True )
