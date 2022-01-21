@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../static/dragonBooks/CSS/style.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script
+    src="https://kit.fontawesome.com/6255250c8f.js"
+    crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" href="../../static/dragonBooks/CSS/style.css" />
+  <title>Dragon Books - Home</title>
 </head>
 <body>
+  {% load static %}
+  {% block content %}
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -39,30 +46,70 @@
           <a href="/cart">Cart</a>
         </nav>
       </header>
-        <!-- Popular-Books-Section -->
-    <section class="popular-books">
-      <div class="container">
-        <div class="heading">
-          <div class="line"></div>
-        </div>
-        <div class="books-flex">
-          <div class="card">
-            <a href="book1.html"> 
-            <img src="./images/book-1.jpg" alt="" />
-            <p>Governing States and Localities</p>
-            <div class="price">$12</div>
+        <div style="width: 100%">
+          <div class="col-1g-12">
+            <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;">
+              <a class="btn btn-outline-dark" href="{%url 'shop' %}">  &#x2190; Continue Shopping</a>
+              <br>
+              <br>
+
+              <table class="table" style="width: 100%;">
+                <tr style="text-align: center;">
+                  <th><h5> Items: <strong>3</strong></h5></th>
+                  <th><h5>Total: <strong>$58</strong></h5></th>
+                  <th>
+                    <a style="border-radius:0; "   href="#">Checkout</a>
+                  </th>
+                </tr>
+              </table>
+            </div>
+            <br>
+            <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;">
+               <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ececec;">
+                 <div style="flex:2"></div>
+                 <div style="flex:2">Item</div>
+                 <div style="flex:1">Price</div>
+                 <div style="flex:1">Quantity</div>
+                 <div style="flex:1">Total</div>
+               </div>
+            </div>
+            <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;">
+               <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ececec;">
+                 <div style="flex:2"></div>
+                 <div style="flex:2">Item</div>
+                 <div style="flex:1">Price</div>
+                 <div style="flex:1">Quantity</div>
+                 <div style="flex:1">Total</div>
+               </div>
+            </div>
+            <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;">
+               <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ececec;">
+                 <div style="flex:2"></div>
+                 <div style="flex:2">Item</div>
+                 <div style="flex:1">Price</div>
+                 <div style="flex:1">Quantity</div>
+                 <div style="flex:1">Total</div>
+               </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <footer>
-        <div class="container">
-          <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
         </div>
     <footer>
         <div class="container">
           <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
         </div>
       </footer>
+      {%endblock content %}
 </body>
 </html>

@@ -8,7 +8,6 @@
     <script   src="https://code.jquery.com/jquery-3.6.0.js"   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="   crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../../static/dragonBooks/CSS/style.css" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Shop Books</title>
 </head>
 <body>
@@ -35,6 +34,9 @@
                     </i>
                   </div>
                 </form>
+                <a href="/searchCode">
+                <button class="btn btn-success">SEARCH WITH CLASS CODE</button>
+                </a>
               </div>
             </div>
             <nav class="navbar">
@@ -52,12 +54,12 @@
             <div class="col-md-3">
                     <div class="card">
                       <a href="/{{ product.id }}">
-                        <img src="{{product.image}}" alt="" class="card-img-top" width="500px" height="500px">
+                        <img alt="bookImage" src="{{product.imageURL}}" class="card-img-top" width="500px" height="500px">
                       </a>  
                         <div class="card-body">
                             <div class="card-title">
                                 <a href="/{{ product.id }}">
-                                {{product.title}}
+                                {{ product.name }} 
                                 </a>
                             </div>
                             <div class="card-text">

@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script
       src="https://kit.fontawesome.com/6255250c8f.js"
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="../../static/dragonBooks/CSS/style.css" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Dragon Books - Home</title>
   </head>
   <body>
@@ -54,11 +54,11 @@
           <div>
             <div class='bookimg'>
             <a href="book1.html">
-            <img src="{{ product_object.image }}" alt="Book1" class ="center">
+            <img alt="Book1" src="{{product_object.imageURL}}"  class ="center">
             </a>
             </div>
 
-            <h2>{{ product_object.title }}</h2>
+            <h2>{{ product_object.name }}</h2>
             </a>
             <br>
             <h3> Description:</h3>
@@ -73,11 +73,9 @@
               <p>Email: {{product_object.email}}</p>
               <p>Phone Number: {{product_object.phoneNumber}}</p>
             </div>
-          
+            <button type="button" class="btn btn-primary"><a href="/cart.html">Add to Cart</a></button>
           </div>
-          <a href="/{{ product.id }}" class="btn btn-warning">View</a>
-          <a class="btn btn-warning">Add to Cart</a>
-        </div>
+            </div>
       </div>
     </section>
 

@@ -24,11 +24,24 @@ def cart(request):
 def search(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        books = Products.objects.filter(title__contains=searched)
+        books = Products.objects.filter(name__contains=searched)
         return render(request, 'dragonBooks/search.html', {'searched':searched, 'books':books})
     
     else:
         return render(request, 'dragonBooks/search.html', {})
+
+def codeSearch(request):
+    if request.method == "POST":
+        codeSearched = request.POST['codeSearched']
+        books = Products.objects.filter(classCode__contains=codeSearched)
+        return render(request, 'dragonBooks/codeSearch.html', {'codeSearched':codeSearched, 'books':books})
+    else:
+        return render(request, 'dragonBooks/codeSearch.html', {})
+
+
+
+def searchCode(request):
+    return render(request, 'dragonBooks/searchCode.html', {} )
 
 def single(request,id):
     product_object = Products.objects.get(id=id)
