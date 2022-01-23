@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/6255250c8f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/static/dragonBooks/CSS/style.css?{% now 'U' %}"/>
+    <title>Dragon Books - Home</title>
+  </head>
+  <body>
+     <!-- Header -->
+     <header class="header">
+        <div class="container">
+          <div class="sub-header">
+            <div class="brand-logo">
+              <a href="book1.html">
+              <a href="index.html">
+                <img src="../../static/dragonBooks/images/logo.PNG"  alt="Dragon Books" />
+                </a>
+            </div>
+            <div class="search-bar">
+              <input
+                type="search"
+                id="search"
+                name="search"
+                placeholder="Search"
+              />
+              <div class="search-btn">
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar">
+          <a href="/">Home</a>
+          <a href="/shop">Shop Books</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/cart">Cart</a>
+        </nav>
+      </header>
+      <div class="checkout-panel">
+        <div class="panel-body">
+          <h2 class="title">Checkout</h2>
+       
+          <div class="progress-bar">
+            <div class="step active"></div>
+            <div class="step active"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+          </div>
+       
+          <div class="payment-method">
+            <label for="card" class="method card">
+              <div class="Cash">
+                <img src="../../static/dragonBooks/images/cash1.png" alt="Dragon Books" />
+              </div>
+       
+              <div class="radio-input">
+                <input id="card" type="radio" name="payment">
+                Pay £340.00 directly to the seller
+              </div>
+            </label>
+       
+            <label for="paypal" class="method paypal">
+              <img src="../../static/dragonBooks/images/paypal.png" alt="Dragon Books" />
+              <div class="radio-input">
+                <input id="paypal" type="radio" name="payment">
+                Pay £340.00 with PayPal
+              </div>
+            </label>
+          </div>
+       
+          <div class="input-fields">
+            <div class="column-1">
+              <label for="cardholder">Cardholder's Name</label>
+              <input type="text" id="cardholder" />
+       
+              <div class="small-inputs">
+                <div>
+                  <label for="date">Valid thru</label>
+                  <input type="text" id="date" placeholder="MM / YY" />
+                </div>
+       
+                <div>
+                  <label for="verification">CVV / CVC *</label>
+                  <input type="password" id="verification"/>
+                </div>
+              </div>
+       
+            </div>
+            <div class="column-2">
+              <label for="cardnumber">Card Number</label>
+              <input type="password" id="cardnumber"/>
+       
+              <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
+            </div>
+          </div>
+        </div>
+       
+        <div class="panel-footer">
+          <button class="btn back-btn">Back</button>
+          <button class="btn next-btn">Next Step</button>
+        </div>
+      </div>
+        <footer>
+            <div class="container">
+              <p>All the payment are secured by Paypal if payments are made through the website. 
+                All payments made directly to the sellers are to be made at the buyers risk. </p>
+            </div>
+          </footer>
+        </body>
+      </html>
+
+      

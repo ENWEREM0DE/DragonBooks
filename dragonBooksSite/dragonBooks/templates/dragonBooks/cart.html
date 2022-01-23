@@ -9,7 +9,7 @@
     src="https://kit.fontawesome.com/6255250c8f.js"
     crossorigin="anonymous"
   ></script>
-  <link rel="stylesheet" href="../../static/dragonBooks/CSS/style.css" />
+  <link rel="stylesheet" href="/static/dragonBooks/CSS/style.css?{% now 'U' %}">
   <title>Dragon Books - Home</title>
 </head>
 <body>
@@ -61,7 +61,8 @@
                   <th><h5> Items: <strong>3</strong></h5></th>
                   <th><h5>Total: <strong>$58</strong></h5></th>
                   <th>
-                    <a style="border-radius:0; "   href="#">Checkout</a>
+                    <button class="btn btn-success"><a style="border-radius:0; "   href="/checkout">Checkout</a></button>
+                    
                   </th>
                 </tr>
               </table>

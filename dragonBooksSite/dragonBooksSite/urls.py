@@ -32,6 +32,7 @@ urlpatterns = [
     path('codeSearch/', views.codeSearch, name='codeSearch'),
     path('<int:id>/',views.single, name='single'),
     path('searchCode/', views.searchCode, name='searchCode'),
+    path('checkout/', views.checkout, name="checkout")
 ]
 
 urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

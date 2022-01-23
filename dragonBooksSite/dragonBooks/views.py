@@ -7,6 +7,9 @@ from django.core.paginator import Paginator
 def index(request):
     return render(request, 'dragonBooks/index.html')
 
+def checkout(request):
+    return render(request, 'dragonBooks/checkout.html')
+
 
 def shop(request):
     product_objects = Products.objects.all()
