@@ -466,6 +466,10 @@ footer p {
   margin-bottom: 2rem;
 }
 
+.accordion-thumb:hover + .accordion-thumb{
+  display: block;
+}
+
 /* Active */
 
 .accordion-item.is-active {

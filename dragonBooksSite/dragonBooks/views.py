@@ -49,3 +49,12 @@ def searchCode(request):
 def single(request,id):
     product_object = Products.objects.get(id=id)
     return render(request, 'dragonBooks/singlebook.html', {'product_object':product_object})
+
+def forthepress(request):
+    return render(request, 'dragonBooks/forthepress.html', {})
+
+def booksellers(request):
+    return render(request, 'dragonBooks/booksellers.html', {})
+
+def mediamentions(request):
+    return render(request, 'dragonBooks/mediamentions.html', {})
