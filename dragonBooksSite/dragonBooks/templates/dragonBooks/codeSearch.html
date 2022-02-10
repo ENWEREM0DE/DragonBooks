@@ -1,34 +1,5 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/dragonBooks/CSS/style.css?{% now 'U' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Document</title>
-</head>
-<body>
-     <!-- Header -->
-     <header class="header">
-        <div class="container">
-          <div class="sub-header">
-            <div class="brand-logo">
-              <a href="/">
-                <img src="../../static/dragonBooks/images/logo.PNG" alt="Dragon Books" />
-                </a>
-            </div>
-          </div>
-        </div>
-        <nav class="navbar">
-          <a href="/">Home</a>
-          <a href="/admin"> Admin Account</a>
-          <a href="/shop">Shop Books</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/cart">Cart</a>
-        </nav>
-      </header>
+{% extends 'dragonBooks/index.html' %}
+{% block content%}
       {% if codeSearched %}
         <h1>You Searched for {{codeSearched}}</h1>
         <br/>
@@ -62,11 +33,4 @@
       {% else %} 
         <h1>You forgot to search</h1>
       {% endif %}
-      
-      <footer>
-        <div class="container">
-          <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
-        </div>
-      </footer>
-</body>
-</html>
+{% endblock content %}

@@ -1,53 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script   src="https://code.jquery.com/jquery-3.6.0.js"   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="   crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/dragonBooks/CSS/style.css?{% now 'U' %}">
-    <title>Shop Books</title>
-</head>
-<body>
-        <!-- Header -->
-        <header class="header">
-            <div class="container">
-              <div class="sub-header">
-                <div class="brand-logo">
-                  <a href="/">
-                    <img src="../../static/dragonBooks/images/logo.PNG" alt="Dragon Books" />
-                    </a>
-                </div>
-                <form class="search-bar" method="POST" action="{% url 'search' %}">
-                  {% csrf_token %}
-                  <input
-                    type="search"
-                    id="search"
-                    name="searched"
-                    placeholder="Search for books"
-                  />
-                  <div class="search-btn">
-                    <i class="fas fa-search">
-                        <button class="btn btn-success" type="submit">Search</button>
-                    </i>
-                  </div>
-                </form>
-                <a href="/searchCode">
-                <button class="btn btn-success">SEARCH WITH CLASS CODE</button>
-                </a>
-              </div>
-            </div>
-            <nav class="navbar">
-              <a href="/">Home</a>
-              <a href="/admin"> Admin Account</a>
-              <a href="/shop">Shop Books</a>
-              <a href="/about">About</a>
-              <a href="/contact">Contact</a>
-              <a href="/cart">Cart</a>
-            </nav>
-          </header>
+{% extends 'dragonBooks/index.html' %}
+{%block content %}
     <div class="container">
         <div class="row">
             {% for product in product_objects %}
@@ -67,7 +19,7 @@
                             </div>
                                     <a href="/{{ product.id }}" class="btn btn-warning">View</a>
                                     <hr />
-                                    <a class="btn btn-warning">Add to Cart</a>
+                                    <button data-product={{product.id}} data-action="add" class="btn btn-warning update-cart">Add to Cart</button>
                         </div>
                 
                     </div>
@@ -76,13 +28,6 @@
             {%endfor %}
         </div>
     </div>
-    <footer>
-        <div class="container">
-          <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
-        </div>
-      </footer>
-</body>
-</html>
-
+{% endblock content %}
 
     

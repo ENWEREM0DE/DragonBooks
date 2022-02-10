@@ -1,49 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script
-      src="https://kit.fontawesome.com/6255250c8f.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="/static/dragonBooks/CSS/style.css?{% now 'U' %}">
-    <title>Dragon Books - Home</title>
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <div class="sub-header">
-          <div class="brand-logo">
-            <a href="/">
-              <img src="../../static/dragonBooks/images/logo.PNG" alt="Dragon Books" />
-              </a>
-          </div>
-          <div class="search-bar">
-            <input
-              type="search"
-              id="search"
-              name="search"
-              placeholder="Search"
-            />
-            <div class="search-btn">
-              <i class="fas fa-search"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <nav class="navbar">
-        <a href="/">Home</a>
-        <a href="/admin"> Admin Account</a>
-        <a href="/shop">Shop Books</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/cart">Cart</a>
-      </nav>
-    </header>
+{% extends 'dragonBooks/index.html' %}
+{% block content %}
 
     <section class="popular-books">
       <div class="container">
@@ -73,18 +29,10 @@
               <p>Email: {{product_object.email}}</p>
               <p>Phone Number: {{product_object.phoneNumber}}</p>
             </div>
-            <button type="button" class="btn btn-primary"><a href="/cart.html">Add to Cart</a></button>
+            <button data-product={{product.id}} data-action="add" class="btn btn-warning update-cart">Add to Cart</button>
           </div>
             </div>
       </div>
     </section>
 
-    
-
-    <footer>
-      <div class="container">
-        <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
-      </div>
-    </footer>
-  </body>
-</html>
+{% endblock content%}

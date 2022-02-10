@@ -36,6 +36,7 @@ urlpatterns = [
     path('forthepress/', views.forthepress, name="forthepress"),
     path('booksellers/', views.booksellers, name="booksellers"),
     path('mediamentions/', views.mediamentions, name="mediamentions"),
+    path('update_item/', views.updateItem, name="update_item"),
 ]
 
 urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

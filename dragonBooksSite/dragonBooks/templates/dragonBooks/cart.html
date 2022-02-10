@@ -1,54 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script
-    src="https://kit.fontawesome.com/6255250c8f.js"
-    crossorigin="anonymous"
-  ></script>
-  <link rel="stylesheet" href="/static/dragonBooks/CSS/style.css?{% now 'U' %}">
-  <title>Dragon Books - Home</title>
-</head>
-<body>
-  {% load static %}
+
+  {% extends 'dragonBooks/index.html' %}
   {% block content %}
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-          <div class="sub-header">
-            <div class="brand-logo">
-              <a href="/">
-                <img src="../../static/dragonBooks/images/logo.PNG" alt="Dragon Books" />
-                </a>
-            </div>
-            <div class="search-bar">
-              <input
-                type="search"
-                id="search"
-                name="search"
-                placeholder="Search"
-              />
-              <div class="search-btn">
-                <i class="fas fa-search"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <nav class="navbar">
-          <a href="/">Home</a>
-          <a href="/admin"> Admin Account</a>
-          <a href="/shop">Shop Books</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/cart">Cart</a>
-        </nav>
-      </header>
-        <div style="width: 100%">
-          <div class="col-1g-12">
-            <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+        <section id="blog-home" class="pt-5 mt-5 container">
+          <h2 class="font-weight-bold pt-5">Shopping Cart</h2>
+          <hr>
+        </section>
+        <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
             background-color: #fff;
             border-radius: 4px;
             padding: 10px;">
@@ -58,8 +15,8 @@
 
               <table class="table" style="width: 100%;">
                 <tr style="text-align: center;">
-                  <th><h5> Items: <strong>3</strong></h5></th>
-                  <th><h5>Total: <strong>$58</strong></h5></th>
+                  <th><h5> Items: <strong>{{order.get_cart_items}}</strong></h5></th>
+                  <th><h5>Total: <strong>${{order.get_cart_total|floatformat:2}}</strong></h5></th>
                   <th>
                     <button class="btn btn-success"><a style="border-radius:0; "   href="/checkout">Checkout</a></button>
                     
@@ -67,50 +24,35 @@
                 </tr>
               </table>
             </div>
-            <br>
-            <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
-            background-color: #fff;
-            border-radius: 4px;
-            padding: 10px;">
-               <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ececec;">
-                 <div style="flex:2"></div>
-                 <div style="flex:2">Item</div>
-                 <div style="flex:1">Price</div>
-                 <div style="flex:1">Quantity</div>
-                 <div style="flex:1">Total</div>
-               </div>
-            </div>
-            <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
-            background-color: #fff;
-            border-radius: 4px;
-            padding: 10px;">
-               <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ececec;">
-                 <div style="flex:2"></div>
-                 <div style="flex:2">Item</div>
-                 <div style="flex:1">Price</div>
-                 <div style="flex:1">Quantity</div>
-                 <div style="flex:1">Total</div>
-               </div>
-            </div>
-            <div style="  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
-            background-color: #fff;
-            border-radius: 4px;
-            padding: 10px;">
-               <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ececec;">
-                 <div style="flex:2"></div>
-                 <div style="flex:2">Item</div>
-                 <div style="flex:1">Price</div>
-                 <div style="flex:1">Quantity</div>
-                 <div style="flex:1">Total</div>
-               </div>
-            </div>
-          </div>
-        </div>
-    <footer>
-        <div class="container">
-          <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
-        </div>
-      </footer>
-      {%endblock content %}
-</body>
-</html>
+        <section id="cart-container" class="container my-5">
+          {% for item in items %}
+          <table width="100%">
+            <thead>
+              <tr>
+                <td>Image</td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Total</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div><img src="{{item.product.imageURL}}"  alt="Product Image"></div></td>
+                <td><h5> {{item.product.name}} </h5></td>
+                <td><h5> ${{item.product.price|floatformat:2}} </h5></td>
+                <td>
+                  {{item.quantity}}
+                  <div class="quantity">
+                    <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="../../static/dragonBooks/images/arrow_up.png" width="100px" height="10px">
+                    <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="../../static/dragonBooks/images/arrow_down.png">
+                  </div>
+                </td>
+                <td><h5>${{item.get_total}}</h5></td>
+              </tr>
+            </tbody>
+          </table>
+          {% endfor %}
+        </section>
+      {%endblock content %} 
+

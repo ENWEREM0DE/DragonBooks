@@ -4,14 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/6255250c8f.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="/static/dragonBooks/CSS/style.css?{% now 'U' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/dragonBooks/CSS/style.css?{% now 'U' %}"> 
   
     <title>Dragon Books - Home</title>
   </head>
+  <script type="text/javascript">
+    var user = '{{request.user}}'
+    function getToken(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+    }
+    var csrftoken = getToken('csrftoken');
+  </script>
   <body>
     <div class="floating-messenger">
       <a href="mailto:dragonBooks@gmail.com"><i class="far fa-comment-dots"></i></a>
@@ -29,17 +45,25 @@
               />
             </a>
           </div>
-          <div class="search-bar">
+          <form class="search-bar" method="POST" action="{% url 'search' %}">
+            {% csrf_token %}
             <input
               type="search"
               id="search"
-              name="search"
-              placeholder="Search"
+              name="searched"
+              placeholder="Search for books"
             />
             <div class="search-btn">
-              <i class="fas fa-search"></i>
+              <i class="fas fa-search">
+                  <button class="btn btn-success" type="submit">Search</button>
+              </i>
             </div>
-          </div>
+          </form>
+
+            <a href="/searchCode">
+              <button class="btn btn-success">SEARCH WITH CLASS CODE</button>
+              </a>
+
         </div>
       </div>
       <nav class="navbar">
@@ -52,6 +76,7 @@
     </header>
 
     <!-- Hero-Section -->
+    {% block content %}
     <section class="main-section">
       <div class="container">
         <div class="main-text">
@@ -102,11 +127,18 @@
         </div>
       </div>
     </section>
+    {% endblock content %}
 
     <footer>
       <div class="container">
         <p>© Copyright 2021 Dragon Books All Rights Reserved.</p>
       </div>
     </footer>
+    <script
+    src="https://kit.fontawesome.com/6255250c8f.js"
+    crossorigin="anonymous"
+  ></script>
+    <script type="text/javascript" src="/static/dragonBooks/js/cart.js?{% now 'U' %}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
