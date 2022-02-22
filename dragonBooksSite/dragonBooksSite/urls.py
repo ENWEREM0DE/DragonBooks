@@ -23,20 +23,21 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index,name='index'),
-    path('shop/',views.shop,name='shop'),
-    path('about/',views.about,name='about'),
-    path('contact/',views.contact,name='contact'),
-    path('cart/',views.cart,name='cart'),
+    path('', views.index, name='index'),
+    path('shop/', views.shop, name='shop'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+    path('cart/', views.cart, name='cart'),
     path('search/', views.search, name='search'),
     path('codeSearch/', views.codeSearch, name='codeSearch'),
-    path('<int:id>/',views.single, name='single'),
+    path('<int:id>/', views.single, name='single'),
     path('searchCode/', views.searchCode, name='searchCode'),
     path('checkout/', views.checkout, name="checkout"),
     path('forthepress/', views.forthepress, name="forthepress"),
     path('booksellers/', views.booksellers, name="booksellers"),
     path('mediamentions/', views.mediamentions, name="mediamentions"),
     path('update_item/', views.updateItem, name="update_item"),
+    path('login/', views.login, name='login'),
 ]
 
-urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
