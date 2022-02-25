@@ -17,6 +17,7 @@ from unicodedata import name
 from django.contrib import admin
 from django.urls import path
 from dragonBooks import views
+from django.contrib.auth import views as auth_view
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -37,7 +38,12 @@ urlpatterns = [
     path('booksellers/', views.booksellers, name="booksellers"),
     path('mediamentions/', views.mediamentions, name="mediamentions"),
     path('update_item/', views.updateItem, name="update_item"),
-    path('login/', views.login, name='login'),
+    path('register/', views.register, name='register'),
+    path('login/', auth_view.LoginView.as_view(
+        template_name='dragonBooks/login.html'), name='login'),
+    path('logout/', auth_view.LogoutView.as_view(
+        template_name='dragonBooks/logout.html'), name='logout'),
+    path('profile/', views.profile, name="profile")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

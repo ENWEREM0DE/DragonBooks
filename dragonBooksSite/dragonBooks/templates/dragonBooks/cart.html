@@ -44,8 +44,8 @@
                 <td>
                   {{item.quantity}}
                   <div class="quantity">
-                    <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="../../static/dragonBooks/images/arrow_up.png" width="100px" height="10px">
-                    <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="../../static/dragonBooks/images/arrow_down.png">
+                    <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="../../static/dragonBooks/images/arrow_up.png?{% now 'U' %}">
+                    <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="../../static/dragonBooks/images/arrow_down.png?{% now 'U' %}">
                   </div>
                 </td>
                 <td><h5>${{item.get_total}}</h5></td>

@@ -1,9 +1,12 @@
 from django.core import paginator
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import *
 import json
 from django.core.paginator import Paginator
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from .forms import UserRegisterForm
 # Create your views here.
 
 
@@ -112,3 +115,25 @@ def updateItem(request):
 
 def login(request):
     return render(request, 'dragonBooks/login.html', {})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(
+                request, f'Hi {username}, your account was created successfully')
+            return redirect('index')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'dragonBooks/register.html', {'form': form})
+
+
+def logout(request):
+    return render(request, 'dragonBooks/logout.html', {})
+
+
+def profile(request):
+    return render(request, 'dragonBooks/profile.html', {})

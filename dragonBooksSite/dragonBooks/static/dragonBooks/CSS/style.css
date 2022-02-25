@@ -789,11 +789,14 @@ input[type='password']:focus {
 }
 
 .chg-quantity{
-  width: 1500px;
-  height: 1000px;
   cursor: pointer;
   display: block;
   padding-bottom: 5px;
+}
+
+.quantity img {
+  width: 10px;
+  height: 10px;
 }
 
 .box-element {
@@ -817,7 +820,7 @@ input[type='password']:focus {
 
 .quantity {
   display: inline-block;
-  font-weight: 2;
+  font-weight: 0;
   padding-right: 10px;
 }
 
@@ -947,4 +950,19 @@ input[type='password']:focus {
       margin: 30px 20px;
       padding: 40px 15px 15px 15px
   }
+}
+
+
+/* Register page */
+#signup-button{
+  position: relative;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 13px;
+  background-color: #fd5e19;
+  overflow: hidden;
+  transition: 0.2s;
 }

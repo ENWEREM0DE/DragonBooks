@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,4 @@ MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 
+LOGIN_REDIRECT_URL = 'index'
